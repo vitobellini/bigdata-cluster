@@ -17,9 +17,9 @@ https://docs.docker.com/engine/installation/
 #### Installing docker-compose
 
 ```
-sudo apt-get update && sudo apt-get -y upgrade
-sudo apt-get install python-pip
-sudo pip install docker-compose
+$ sudo apt-get update && sudo apt-get -y upgrade
+$ sudo apt-get install python-pip
+$ sudo pip install docker-compose
 ```
 
 ## Run example
