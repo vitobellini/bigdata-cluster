@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Java
 
 ENV JAVA_HOME		/usr/lib/jvm/java-8-oracle
+ENV PATH		$PATH:$JAVA_HOME/bin
 
 RUN apt-get update && \
     apt-get install -y software-properties-common
@@ -64,6 +65,9 @@ RUN apt-get update && \
 
 # Overwrite default HADOOP configuration files with our config files
 COPY conf $HADOOP_HOME/etc/hadoop/
+
+RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=$JAVA_HOME' $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
+#RUN sed -i '/^export JAVA_HOME/ s:.*:export JAVA_HOME=/usr/local/jdk:i' $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
 
 # Formatting HDFS
 RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
