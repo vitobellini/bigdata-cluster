@@ -40,7 +40,10 @@ RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 ADD ssh_key_propagate.sh /usr/local/bin/ssh_key_propagate.sh
 RUN chmod +x /usr/local/bin/ssh_key_propagate.sh 
 
-CMD ["/usr/sbin/sshd"]
+ADD start_sshd.sh /usr/local/bin/start_sshd.sh
+RUN chmod +x /usr/local/bin/start_sshd.sh
+RUN /usr/local/bin/start_sshd.sh
+
 
 # Hadoop
 
@@ -72,9 +75,9 @@ RUN /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
 
 # Supervisor
 
-COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+#COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-CMD ["/usr/bin/supervisord"]
+#CMD ["/usr/bin/supervisord"]
 
 ####################
 # PORTS
