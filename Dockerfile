@@ -44,6 +44,8 @@ CMD ["/usr/sbin/sshd"]
 
 # Hadoop
 
+ENV APACHE_MIRROR	www-eu.apache.org
+
 ENV HADOOP_VERSION	2.8.0
 ENV HADOOP_HOME		/usr/local/hadoop
 ENV HADOOP_OPTS		-Djava.library.path=/usr/local/hadoop/lib/native
@@ -51,7 +53,7 @@ ENV PATH		$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
 RUN apt-get update && \
     apt-get install -y wget libzip4 libsnappy1v5 libssl-dev && \
-    wget http://archive.apache.org/dist/hadoop/core/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz && \
+    wget http://$APACHE_MIRROR/dist/hadoop/core/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz && \
     tar -zxf /hadoop-$HADOOP_VERSION.tar.gz && \
     rm /hadoop-$HADOOP_VERSION.tar.gz && \
     mv hadoop-$HADOOP_VERSION /usr/local/hadoop && \
