@@ -66,7 +66,7 @@ RUN apt-get update && \
 # Overwrite default HADOOP configuration files with our config files
 COPY conf $HADOOP_HOME/etc/hadoop/
 
-RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=$JAVA_HOME' $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
+RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=$JAVA_HOME/g' $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
 #RUN sed -i '/^export JAVA_HOME/ s:.*:export JAVA_HOME=/usr/local/jdk:i' $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
 
 # Formatting HDFS
