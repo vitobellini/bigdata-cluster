@@ -40,6 +40,8 @@ RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 ADD ssh_key_propagate.sh /usr/local/bin/ssh_key_propagate.sh
 RUN chmod +x /usr/local/bin/ssh_key_propagate.sh 
 
+ENTRYPOINT service ssh restart && bash
+
 # Hadoop
 
 ENV HADOOP_VERSION	2.8.0
@@ -64,7 +66,7 @@ RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
 
 VOLUME /data
 
-RUN service ssh start && /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
+RUN /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
 
 # Supervisor
 
