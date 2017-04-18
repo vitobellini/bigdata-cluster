@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  namenode:
+    build: .
+    ports:
+      - "50070:50070"
+      - "9000:9000"
+      - "2122:22"
+    command: hdfs namenode
+    #hostname: hdfs-namenode
+    extra_hosts:
+      - "hadoop-master:192.168.1.2"
+      - "hadoop-slave1:192.168.1.3"
+      - "hadoop-slave2:192.168.1.4"
+      - "hadoop-slave3:192.168.1.5"
+      - "hadoop-slave4:192.168.1.6"
+
+  datanode:
+    build: .
+    ports:
+      - "50075:50075"
+      - "2120:22"
+    command: hdfs datanode
+    extra_hosts:
+      - "hadoop-master:192.168.1.2"
+      - "hadoop-slave1:192.168.1.3"
+      - "hadoop-slave2:192.168.1.4"
+      - "hadoop-slave3:192.168.1.5"
+      - "hadoop-slave4:192.168.1.6"
