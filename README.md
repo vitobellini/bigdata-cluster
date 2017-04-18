@@ -5,6 +5,12 @@ Hadoop Cluster with Docker
 
 ## Run example
 
+Master
 ```bash
 $ sudo docker-compose up -d
+```
+
+Slaves
+```bash
+$ sudo docker-compose up -d datanode
 ```
