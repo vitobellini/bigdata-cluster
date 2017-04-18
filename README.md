@@ -10,8 +10,16 @@ Before to start, you have to had the following softwares to be installed on all 
 - [docker](https://www.docker.com/)
 - [docker-compose](https://docs.docker.com/compose/install/)
 
+#### Installing Docker Engine
+
+https://docs.docker.com/engine/installation/
+
+#### Installing docker-compose
+
 ```
-Give examples
+sudo apt-get update && sudo apt-get -y upgrade
+sudo apt-get install python-pip
+sudo pip install docker-compose
 ```
 
 ## Run example
