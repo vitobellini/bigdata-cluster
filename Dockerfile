@@ -40,7 +40,7 @@ RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 ADD ssh_key_propagate.sh /usr/local/bin/ssh_key_propagate.sh
 RUN chmod +x /usr/local/bin/ssh_key_propagate.sh 
 
-ENTRYPOINT service ssh start && /bin/bash
+CMD ["/usr/sbin/sshd", "-D"]
 
 # Hadoop
 
