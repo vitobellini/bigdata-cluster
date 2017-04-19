@@ -73,9 +73,8 @@ VOLUME /data
 
 # Supervisor
 
-COPY conf/supervisord-sshd.conf /etc/supervisor/conf.d/sshd.conf
-COPY conf/supervisord-hadoop.conf /etc/supervisor/conf.d/hadoop.conf
-COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY conf/supervisord-master.conf /etc/supervisor/supervisord-master.conf
+COPY conf/supervisord-slave.conf /etc/supervisor/supervisord-slave.conf
 
 ####################
 # PORTS
