@@ -6,11 +6,15 @@ services:
     ports:
       - "50070:50070"
       - "9000:9000"
-      - "8025:8025"
-      - "8035:8035"
-      - "8050:8050"
+      - "8030:8030"
+      - "8031:8031"
+      - "8032:8032"
+      - "8033:8033"
+      - "8088:8088"
       - "2122:22"
     command: bash -c "/root/boot_master.sh && /usr/bin/supervisord -c /etc/supervisor/supervisord-master.conf"
+#    network_mode: host
+#    però facendo così devo rinominare tutti gli host con gli stessi host delle macchine
     extra_hosts:
       - "hadoop-master:192.168.1.2"
       - "hadoop-slave1:192.168.1.3"
@@ -24,6 +28,7 @@ services:
       - "50075:50075"
       - "2120:2120"
     command: /usr/bin/supervisord -c /etc/supervisor/supervisord-slave.conf
+#    network_mode: host
     extra_hosts:
       - "hadoop-master:192.168.1.2"
       - "hadoop-slave1:192.168.1.3"
