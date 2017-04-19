@@ -78,6 +78,8 @@ RUN /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
 COPY conf/supervisord-sshd.conf /etc/supervisor/conf.d/sshd.conf
 COPY conf/supervisord-hadoop.conf /etc/supervisor/conf.d/hadoop.conf
 
+RUN touch /var/run/supervisor.sock && chmod 777 /var/run/supervisor.sock
+
 ####################
 # PORTS
 ####################
@@ -104,4 +106,4 @@ COPY conf/supervisord-hadoop.conf /etc/supervisor/conf.d/hadoop.conf
 
 EXPOSE 50020 50090 50070 50010 50075 8031 8032 8033 8040 8042 49707 22 8088 8030
 
-CMD ["/usr/bin/supervisord", "-c","/etc/supervisor/supervisord.conf"]
+CMD ["/usr/bin/supervisord", "-c","/etc/supervisor/supervisord.conf", "-n"]
