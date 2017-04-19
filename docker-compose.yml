@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  namenode:
+  master:
     build: .
     ports:
       - "50070:50070"
@@ -15,7 +15,7 @@ services:
       - "hadoop-slave3:192.168.1.5"
       - "hadoop-slave4:192.168.1.6"
 
-  datanode:
+  slave:
     build: .
     ports:
       - "50075:50075"

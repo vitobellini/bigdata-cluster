@@ -60,7 +60,7 @@ RUN apt-get update && \
     mkdir -p /usr/local/hadoop/logs
 
 # Overwrite default HADOOP configuration files with our config files
-COPY conf $HADOOP_HOME/etc/hadoop/
+COPY conf-hadoop $HADOOP_HOME/etc/hadoop/
 
 # Formatting HDFS
 RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
