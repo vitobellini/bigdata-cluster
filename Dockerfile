@@ -35,8 +35,9 @@ ADD conf/ssh_config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
 RUN chown root:root /root/.ssh/config
 
-RUN sed  -i "/^[^#]*UsePAM/ s/.*/#&/"  /etc/ssh/sshd_config
-RUN echo "UsePAM no" >> /etc/ssh/sshd_config
+COPY conf/sshd_config /etc/ssh/sshd_config
+#RUN sed -i "/^[^#]*UsePAM/ s/.*/#&/"  /etc/ssh/sshd_config
+#RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 
 #COPY id_rsa.pub /root/.ssh/authorized_keys
 
