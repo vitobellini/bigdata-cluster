@@ -7,8 +7,7 @@ services:
       - "50070:50070"
       - "9000:9000"
       - "2122:22"
-    command: hdfs namenode
-    #hostname: hdfs-namenode
+    command: /usr/bin/supervisord -c /etc/supervisor/supervisord-master.conf
     extra_hosts:
       - "hadoop-master:192.168.1.2"
       - "hadoop-slave1:192.168.1.3"
@@ -21,7 +20,7 @@ services:
     ports:
       - "50075:50075"
       - "2120:22"
-    #command: hdfs datanode
+    command: /usr/bin/supervisord -c /etc/supervisor/supervisord-slave.conf
     extra_hosts:
       - "hadoop-master:192.168.1.2"
       - "hadoop-slave1:192.168.1.3"
