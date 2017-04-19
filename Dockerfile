@@ -42,9 +42,6 @@ COPY keys/id_rsa.pub /root/.ssh/authorized_keys
 COPY keys/id_rsa /root/.ssh
 COPY keys/id_rsa.pub /root/.ssh
 
-ADD ssh_key_propagate.sh /usr/local/bin/ssh_key_propagate.sh
-RUN chmod +x /usr/local/bin/ssh_key_propagate.sh 
-
 # Hadoop
 
 ENV APACHE_MIRROR	www-eu.apache.org
