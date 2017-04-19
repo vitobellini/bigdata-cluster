@@ -38,11 +38,10 @@ RUN chown root:root /root/.ssh/config
 RUN sed  -i "/^[^#]*UsePAM/ s/.*/#&/"  /etc/ssh/sshd_config
 RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 
-COPY $HOME/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+#COPY id_rsa.pub /root/.ssh/authorized_keys
 
 ADD ssh_key_propagate.sh /usr/local/bin/ssh_key_propagate.sh
 RUN chmod +x /usr/local/bin/ssh_key_propagate.sh 
-
 
 # Hadoop
 
