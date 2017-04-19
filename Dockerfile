@@ -67,7 +67,6 @@ RUN apt-get update && \
 COPY conf $HADOOP_HOME/etc/hadoop/
 
 RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=$JAVA_HOME/g' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
-#RUN sed -i '/^export JAVA_HOME/ s:.*:export JAVA_HOME=/usr/local/jdk:i' $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
 
 # Formatting HDFS
 RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
@@ -79,9 +78,9 @@ RUN /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
 
 # Supervisor
 
-#COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-#CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord"]
 
 ####################
 # PORTS
