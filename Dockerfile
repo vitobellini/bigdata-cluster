@@ -67,15 +67,8 @@ RUN apt-get update && \
 # Overwrite default HADOOP configuration files with our config files
 COPY conf-hadoop $HADOOP_HOME/etc/hadoop/
 
-RUN sed -i '/^#.*export JAVA_HOME=/s/^#//' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
-RUN sed -i '/^#.*export JAVA_HOME=/s/^#//' $HADOOP_HOME/etc/hadoop/yarn-env.sh
-RUN sed -i '/^#.*export JAVA_HOME=/s/^#//' $HADOOP_HOME/etc/hadoop/mapred-env.sh
-
-# è meglio se me li copio a mano i file e buonanotte!!!
-
-RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=\/usr\/lib\/jvm\/java-8-oracle/' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
-RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=\/usr\/lib\/jvm\/java-8-oracle/' $HADOOP_HOME/etc/hadoop/yarn-env.sh
-RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=\/usr\/lib\/jvm\/java-8-oracle/' $HADOOP_HOME/etc/hadoop/mapred-env.sh
+#RUN sed -i '/^#.*export JAVA_HOME=/s/^#//' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+#RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=\/usr\/lib\/jvm\/java-8-oracle/' $HADOOP_HOME/etc/hadoop/mapred-env.sh
 
 COPY conf/masters /root/
 COPY conf/slaves /root/
