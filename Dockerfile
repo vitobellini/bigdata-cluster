@@ -36,10 +36,11 @@ RUN chmod 600 /root/.ssh/config
 RUN chown root:root /root/.ssh/config
 
 COPY conf/sshd_config /etc/ssh/sshd_config
-#RUN sed -i "/^[^#]*UsePAM/ s/.*/#&/"  /etc/ssh/sshd_config
-#RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 
-#COPY id_rsa.pub /root/.ssh/authorized_keys
+COPY keys/id_rsa.pub /root/.ssh/authorized_keys
+
+COPY keys/id_rsa /root/.ssh
+COPY keys/id_rsa.pub /root/.ssh
 
 ADD ssh_key_propagate.sh /usr/local/bin/ssh_key_propagate.sh
 RUN chmod +x /usr/local/bin/ssh_key_propagate.sh 
