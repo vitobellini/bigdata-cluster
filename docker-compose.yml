@@ -21,7 +21,7 @@ services:
     ports:
       - "50075:50075"
       - "2120:22"
-    command: hdfs datanode
+    #command: hdfs datanode
     extra_hosts:
       - "hadoop-master:192.168.1.2"
       - "hadoop-slave1:192.168.1.3"
