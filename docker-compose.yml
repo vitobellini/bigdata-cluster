@@ -19,7 +19,7 @@ services:
     build: .
     ports:
       - "50075:50075"
-      - "2120:22"
+      - "2120:2120"
     command: /usr/bin/supervisord -c /etc/supervisor/supervisord-slave.conf
     extra_hosts:
       - "hadoop-master:192.168.1.2"
