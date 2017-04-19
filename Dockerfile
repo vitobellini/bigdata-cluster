@@ -38,7 +38,7 @@ RUN chown root:root /root/.ssh/config
 RUN sed  -i "/^[^#]*UsePAM/ s/.*/#&/"  /etc/ssh/sshd_config
 RUN echo "UsePAM no" >> /etc/ssh/sshd_config
 
-#COPY ~/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+COPY $HOME/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 
 ADD ssh_key_propagate.sh /usr/local/bin/ssh_key_propagate.sh
 RUN chmod +x /usr/local/bin/ssh_key_propagate.sh 
@@ -76,9 +76,8 @@ RUN /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
 
 # Supervisor
 
-COPY conf/supervisord.conf /etc/supervisor/conf.d/main.conf
-RUN chmod 755 /etc/supervisor/conf.d/main.conf
-CMD ["supervisord"]
+COPY conf/supervisord-sshd.conf /etc/supervisor/conf.d/sshd.conf
+COPY conf/supervisord-hadoop.conf /etc/supervisor/conf.d/hadoop.conf
 
 ####################
 # PORTS
@@ -106,4 +105,4 @@ CMD ["supervisord"]
 
 EXPOSE 50020 50090 50070 50010 50075 8031 8032 8033 8040 8042 49707 22 8088 8030
 
-CMD ["hdfs"]
+CMD ["supervisord"]
