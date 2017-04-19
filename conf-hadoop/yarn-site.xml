@@ -9,11 +9,11 @@
 	</property>
 	<property>
 		<name>yarn.resourcemanager.hostname</name>
-		<value>yarn</value>
+		<value>hadoop-master</value>
 	</property>
 	<property>
 		<name>yarn.nodemanager.hostname</name>
-		<value>yarn</value>
+		<value>hadoop-master</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
