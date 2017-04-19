@@ -61,6 +61,8 @@ RUN apt-get update && \
 
 # Overwrite default HADOOP configuration files with our config files
 COPY conf-hadoop $HADOOP_HOME/etc/hadoop/
+COPY conf/masters /root/
+COPY conf/slaves /root/
 
 # Formatting HDFS
 RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
@@ -74,6 +76,11 @@ VOLUME /data
 
 COPY conf/supervisord-master.conf /etc/supervisor/supervisord-master.conf
 COPY conf/supervisord-slave.conf /etc/supervisor/supervisord-slave.conf
+
+# Master
+
+COPY boot_master.sh /root/
+RUN chmod +x /root/boot_master.sh
 
 ####################
 # PORTS
