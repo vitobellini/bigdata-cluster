@@ -7,7 +7,7 @@ services:
       - "50070:50070"
       - "9000:9000"
       - "2122:22"
-    command: /usr/bin/supervisord -c /etc/supervisor/supervisord-master.conf
+    command: bash -c "/root/boot_master.sh && /usr/bin/supervisord -c /etc/supervisor/supervisord-master.conf"
     extra_hosts:
       - "hadoop-master:192.168.1.2"
       - "hadoop-slave1:192.168.1.3"
