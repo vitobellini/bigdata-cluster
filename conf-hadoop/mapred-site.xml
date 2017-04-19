@@ -3,8 +3,10 @@
 		<name>mapreduce.framework.name</name>
 		<value>yarn</value>
 	</property>
+	<!--
 	<property>
 		<name>mapreduce.job.tracker</name>
 		<value>hadoop-master:5431</value>
 	</property>
+	-->
 </configuration>

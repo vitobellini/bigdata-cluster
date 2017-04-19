@@ -6,6 +6,9 @@ services:
     ports:
       - "50070:50070"
       - "9000:9000"
+      - "8025:8025"
+      - "8035:8035"
+      - "8050:8050"
       - "2122:22"
     command: bash -c "/root/boot_master.sh && /usr/bin/supervisord -c /etc/supervisor/supervisord-master.conf"
     extra_hosts:
