@@ -63,8 +63,6 @@ RUN apt-get update && \
 # Overwrite default HADOOP configuration files with our config files
 COPY conf $HADOOP_HOME/etc/hadoop/
 
-#RUN sed -i 's/export JAVA_HOME=${JAVA_HOME}/export JAVA_HOME=$JAVA_HOME/g' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
-
 # Formatting HDFS
 RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
     hdfs namenode -format
@@ -77,9 +75,7 @@ RUN /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
 
 COPY conf/supervisord-sshd.conf /etc/supervisor/conf.d/sshd.conf
 COPY conf/supervisord-hadoop.conf /etc/supervisor/conf.d/hadoop.conf
-COPY conf/supervisord.conf /etc/supervisor/supervisord.conf
-
-#RUN touch /var/run/supervisor.sock && chmod 777 /var/run/supervisor.sock
+COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ####################
 # PORTS
@@ -107,4 +103,5 @@ COPY conf/supervisord.conf /etc/supervisor/supervisord.conf
 
 EXPOSE 50020 50090 50070 50010 50075 8031 8032 8033 8040 8042 49707 22 8088 8030
 
-CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+#CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+CMD /usr/bin/supervisord
