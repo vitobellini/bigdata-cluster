@@ -69,7 +69,7 @@ RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
 
 VOLUME /data
 
-RUN /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
+#RUN /usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh
 
 # Supervisor
 
@@ -104,4 +104,4 @@ COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 50020 50090 50070 50010 50075 8031 8032 8033 8040 8042 49707 22 8088 8030
 
 #CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
-CMD ["/usr/bin/supervisord"]
+CMD ["supervisord"]
