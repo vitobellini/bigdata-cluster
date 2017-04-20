@@ -26,6 +26,7 @@ services:
     build: .
     ports:
       - "50075:50075"
+      - "50010:50010"
       - "2120:2120"
     command: /usr/bin/supervisord -c /etc/supervisor/supervisord-slave.conf
 #    network_mode: host
