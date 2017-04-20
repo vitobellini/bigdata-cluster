@@ -80,8 +80,6 @@ RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
 
 VOLUME /data
 
-RUN hadoop fs -mkdir -p /var/log/hadoop-yarn
-
 # Supervisor
 
 COPY conf/supervisord-master.conf /etc/supervisor/supervisord-master.conf
