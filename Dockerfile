@@ -65,7 +65,10 @@ RUN apt-get update && \
     mkdir -p /usr/local/hadoop/logs
 
 # Overwrite default HADOOP configuration files with our config files
+
 COPY conf-hadoop $HADOOP_HOME/etc/hadoop/
+RUN mkdir -p /root/conf-hadoop-master
+COPY conf-hadoop-master /root/conf-hadoop-master/
 
 COPY conf/masters /root/
 COPY conf/slaves /root/
