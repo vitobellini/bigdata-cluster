@@ -7,16 +7,14 @@
 		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
 		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
 	</property>
-	<!--
-	<property>
-		<name>yarn.resourcemanager.hostname</name>
-		<value>hadoop-master</value>
-	</property>
-	<property>
-		<name>yarn.nodemanager.hostname</name>
-		<value>hadoop-master</value>
-	</property>
-	-->
+        <property>
+                <name>yarn.log-aggregation-enable</name>
+                <value>true</true>
+        </property>
+        <property>
+                <name>yarn.nodemanager.remote-app-log-dir</name>
+                <value>hdfs://0.0.0.0:9000/var/log/hadoop-yarn/apps</value>
+        </property>
 	<property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
 		<value>0.0.0.0:8031</value>

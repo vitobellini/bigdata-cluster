@@ -80,6 +80,8 @@ RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
 
 VOLUME /data
 
+RUN hadoop fs -mkdir -p /var/log/hadoop-yarn
+
 # Supervisor
 
 COPY conf/supervisord-master.conf /etc/supervisor/supervisord-master.conf
@@ -114,4 +116,4 @@ RUN chmod +x /root/boot_master.sh
 #	50090 = dfs.secondary.http.address	(HTTP / Checkpoint for NameNode metadata)
 #EXPOSE 9000 50070 50010 50020 50075 50090
 
-EXPOSE 50020 50090 50070 50010 50075 8025 8031 8032 8035 8033 8040 8042 8050 49707 22 2120 8088 8030
+EXPOSE 50020 50090 50070 50010 50075 9000 8025 8031 8032 8035 8033 8040 8042 8050 49707 22 2120 8088 8030
