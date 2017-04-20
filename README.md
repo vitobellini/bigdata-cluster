@@ -31,5 +31,5 @@ $ sudo docker-compose up -d
 
 Slaves
 ```bash
-$ sudo docker-compose up -d datanode
+$ sudo docker-compose up -d slave
 ```
