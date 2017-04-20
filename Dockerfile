@@ -8,7 +8,7 @@ ENV JAVA_HOME		/usr/lib/jvm/java-8-oracle
 ENV PATH		$PATH:$JAVA_HOME/bin
 
 RUN apt-get update && \
-    apt-get install -y software-properties-common net-tools iputils-ping
+    apt-get install -y software-properties-common net-tools iputils-ping less telnet
 
 RUN apt-get install -y openssh-server sshpass supervisor vim
 RUN mkdir -p /var/run/sshd /var/log/supervisor
