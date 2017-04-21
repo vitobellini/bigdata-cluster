@@ -10,7 +10,7 @@ ENV PATH		$PATH:$JAVA_HOME/bin
 RUN apt-get update && \
     apt-get install -y software-properties-common net-tools iputils-ping less telnet
 
-RUN apt-get install -y openssh-server sshpass supervisor vim
+RUN apt-get install -y openssh-server serf sshpass supervisor vim
 RUN mkdir -p /var/run/sshd /var/log/supervisor
 
 RUN \
@@ -114,4 +114,7 @@ RUN chmod +x /root/boot_master.sh
 #	50090 = dfs.secondary.http.address	(HTTP / Checkpoint for NameNode metadata)
 #EXPOSE 9000 50070 50010 50020 50075 50090
 
-EXPOSE 50020 50090 50070 50010 50075 9000 8025 8031 8032 8035 8033 8040 8042 8050 49707 22 2120 8088 8030
+# 7946 serf
+# 7373 serf
+
+EXPOSE 50020 50090 50070 50010 50075 9000 8025 8031 8032 8035 8033 8040 8042 8050 49707 22 2120 8088 8030 7946 7373
