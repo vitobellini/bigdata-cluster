@@ -16,6 +16,10 @@
 		<value>hdfs://hadoop-master:9000/var/log/hadoop-yarn/apps</value>
 	</property>
 	<property>
+		<name>yarn.resourcemanager.hostname</name>
+		<value>hadoop-master</name>
+	</property>
+	<property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
 		<value>hadoop-master:8031</value>
 	</property>

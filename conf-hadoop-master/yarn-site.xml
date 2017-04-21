@@ -23,6 +23,10 @@
 		<name>yarn.resourcemanager.scheduler.address</name>
 		<value>0.0.0.0:8030</value>
 	</property>
+        <property>
+                <name>yarn.resourcemanager.hostname</name>
+                <value>0.0.0.0</name>
+        </property>
 	<property>
 		<name>yarn.resourcemanager.address</name>
 		<value>0.0.0.0:8032</value>
