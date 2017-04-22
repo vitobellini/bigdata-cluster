@@ -17,7 +17,8 @@ COPY conf-dns/dnsmasq.sh /usr/local/bin
 RUN mkdir -p /etc/serf
 COPY conf-dns/serf.json /etc/serf
 
-COPY conf-dns/dnsmasq.conf /etc
+RUN mkdir -p /etc/dnsmasq.d
+COPY conf-dns/dnsmasq.conf /etc/dnsmasq.d
 COPY conf-dns/resolv.dnsmasq.conf /etc
 
 # Supervisor
