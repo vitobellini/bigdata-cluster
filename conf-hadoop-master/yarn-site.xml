@@ -11,6 +11,10 @@
                 <name>yarn.log-aggregation-enable</name>
                 <value>true</value>
         </property>
+	<property>
+		<name>yarn.nodemanager.address</name>
+		<value>0.0.0.0</value>
+	</property>
         <property>
                 <name>yarn.nodemanager.remote-app-log-dir</name>
                 <value>hdfs://0.0.0.0:9000/var/log/hadoop-yarn/apps</value>
