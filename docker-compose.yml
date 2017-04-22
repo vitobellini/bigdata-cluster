@@ -56,3 +56,9 @@ services:
       - "hadoop-slave2:192.168.1.4"
       - "hadoop-slave3:192.168.1.5"
       - "hadoop-slave4:192.168.1.6"
+
+
+networks:
+  default:
+    external:
+      name: funker
