@@ -25,6 +25,8 @@ services:
       - "8033:8033"
       - "8088:8088"
       - "2122:22"
+      - "7946:7946"
+      - "7373:7373"
     command: bash -c "/root/boot_master.sh && /usr/bin/supervisord -c /etc/supervisor/supervisord-master.conf"
     extra_hosts:
       - "hadoop-master:192.168.1.2"
@@ -41,6 +43,8 @@ services:
       - "50010:50010"
       - "50020:50020"
       - "2120:2120"
+      - "7946:7946"
+      - "7373:7373"
     command: /usr/bin/supervisord -c /etc/supervisor/supervisord-slave.conf
     extra_hosts:
       - "hadoop-master:192.168.1.2"
