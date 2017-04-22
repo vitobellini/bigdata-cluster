@@ -1,0 +1,7 @@
+{
+  "event_handlers": [
+    "member-join=dnsmasq.sh",
+    "member-failed=dnsmasq.sh",
+    "member-leave=dnsmasq.sh"
+  ]
+}

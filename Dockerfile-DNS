@@ -1,0 +1,31 @@
+FROM ubuntu:16.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Java
+
+ENV JAVA_HOME		/usr/lib/jvm/java-8-oracle
+ENV PATH		$PATH:$JAVA_HOME/bin
+
+RUN apt-get update && \
+    apt-get install -y software-properties-common serf dnsmasq supervisor vim net-tools iputils-ping less telnet
+
+RUN mkdir -p /var/log/supervisor /var/log/serf /var/log/dnsmasq
+
+COPY conf-dns/dnsmasq.sh /usr/local/bin
+
+RUN mkdir -p /etc/serf
+COPY conf-dns/serf.json /etc/serf
+
+COPY conf-dns/dnsmasq.conf /etc
+COPY conf-dns/resolv.dnsmasq.conf /etc
+
+# Supervisor
+
+COPY conf-dns/supervisord-dns.conf /etc/supervisor/supervisord-dns.conf
+
+# 53 DNS
+# 7946 serf
+# 7373 serf
+
+EXPOSE 53 7946 7373
