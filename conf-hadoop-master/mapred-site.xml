@@ -5,6 +5,6 @@
 	</property>
 	<property>
 		<name>mapreduce.job.tracker</name>
-		<value>0.0.0.0:5431</value>
+		<value>0.0.0.0:54311</value>
 	</property>
 </configuration>
