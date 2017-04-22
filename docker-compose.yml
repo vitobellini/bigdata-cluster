@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile-DNS
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
+      - "192.168.0.2:53:53/tcp"
+      - "192.168.0.2:53:53/udp"
       - "7946:7946"
       - "7373:7373"
     command: bash -c "/usr/bin/supervisord -c /etc/supervisor/supervisord-dns.conf"
