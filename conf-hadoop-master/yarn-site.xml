@@ -25,7 +25,7 @@
 	</property>
         <property>
                 <name>yarn.resourcemanager.hostname</name>
-                <value>0.0.0.0</name>
+                <value>0.0.0.0</value>
         </property>
 	<property>
 		<name>yarn.resourcemanager.address</name>
