@@ -29,4 +29,6 @@ COPY conf-dns/supervisord-dns.conf /etc/supervisor/supervisord-dns.conf
 # 7946 serf
 # 7373 serf
 
-EXPOSE 53/tcp 53/udp 7946 7373
+EXPOSE 53
+EXPOSE 53/udp
+EXPOSE 7946 7373
