@@ -27,6 +27,7 @@ services:
       - "2122:22"
 #      - "7946:7946"
 #      - "7373:7373"
+    hostname: "cluster-master"
     command: bash -c "/root/boot_master.sh && /usr/bin/supervisord -c /etc/supervisor/supervisord-master.conf"
     extra_hosts:
       - "hadoop-master:192.168.1.2"
@@ -42,6 +43,7 @@ services:
       - "50075:50075"
       - "50010:50010"
       - "50020:50020"
+      - "35472:35472"
       - "2120:2120"
 #      - "7946:7946"
 #      - "7373:7373"
