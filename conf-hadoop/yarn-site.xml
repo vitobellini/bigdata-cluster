@@ -17,7 +17,7 @@
 	</property>
 	<property>
 		<name>yarn.resourcemanager.hostname</name>
-		<value>hadoop-master</name>
+		<value>hadoop-master</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
