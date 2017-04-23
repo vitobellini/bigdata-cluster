@@ -3,11 +3,11 @@
 
 mv /root/conf-hadoop-master/* $HADOOP_HOME/etc/hadoop/
 
-if [ ! -f /root/masters ]; then
+if [ -f /root/masters ]; then
 	mv /root/masters $HADOOP_HOME/etc/hadoop/
 fi
 
-if [ ! -f /root/slaves ]; then
+if [ -f /root/slaves ]; then
 	mv /root/slaves $HADOOP_HOME/etc/hadoop/
 fi
 
