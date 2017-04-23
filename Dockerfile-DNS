@@ -25,10 +25,13 @@ COPY conf-dns/resolv.dnsmasq.conf /etc
 
 COPY conf-dns/supervisord-dns.conf /etc/supervisor/supervisord-dns.conf
 
+COPY boot_dns.sh /root/
+RUN chmod +x /root/boot_dns.sh
+
 # 53 DNS
 # 7946 serf
 # 7373 serf
 
-EXPOSE 53
-EXPOSE 53/udp
-EXPOSE 7946 7373
+#EXPOSE 53
+#EXPOSE 53/udp
+#EXPOSE 7946 7373

@@ -88,7 +88,10 @@ COPY conf/supervisord-slave.conf /etc/supervisor/supervisord-slave.conf
 # Master
 
 COPY boot_master.sh /root/
+COPY boot_slave.sh /root/
+
 RUN chmod +x /root/boot_master.sh
+RUN chmod +x /root/boot_slave.sh
 
 ####################
 # PORTS
