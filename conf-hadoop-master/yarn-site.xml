@@ -13,34 +13,34 @@
         </property>
 	<property>
 		<name>yarn.nodemanager.address</name>
-		<value>0.0.0.0</value>
+		<value>master</value>
 	</property>
         <property>
                 <name>yarn.nodemanager.remote-app-log-dir</name>
-                <value>hdfs://0.0.0.0:9000/var/log/hadoop-yarn/apps</value>
+                <value>hdfs://master:9000/var/log/hadoop-yarn/apps</value>
         </property>
 	<property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
-		<value>0.0.0.0:8031</value>
+		<value>master:8031</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.scheduler.address</name>
-		<value>0.0.0.0:8030</value>
+		<value>master:8030</value>
 	</property>
         <property>
                 <name>yarn.resourcemanager.hostname</name>
-                <value>0.0.0.0</value>
+                <value>master</value>
         </property>
 	<property>
 		<name>yarn.resourcemanager.address</name>
-		<value>0.0.0.0:8032</value>
+		<value>master:8032</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.webapp.address</name>
-		<value>0.0.0.0:8088</value>
+		<value>master:8088</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.admin.address</name>
-		<value>0.0.0.0:8033</value>
+		<value>master:8033</value>
 	</property>
 </configuration>
