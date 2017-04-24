@@ -42,7 +42,7 @@ Serf is tool for cluster membership, failure detection, and orchestration.
 
 dnsmasqd is a lightweight, easy to configure, DNS forwarder.
 
-This container will serve to the cluster the functionality of resolving internal dns hostnames and detecting when a new slave joins the cluster.
+This container will serve to the cluster the functionality of resolving internal hostnames and detecting when a new slave joins the cluster.
 
 ```bash
 $ sudo docker build -t dns:latest -f Dockerfile-DNS .
