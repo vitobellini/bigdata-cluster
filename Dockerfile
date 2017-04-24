@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+LABEL maintainer "v.bellini@gmail.com"
+
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Java
@@ -86,6 +88,9 @@ COPY conf/supervisord-master.conf /etc/supervisor/supervisord-master.conf
 COPY conf/supervisord-slave.conf /etc/supervisor/supervisord-slave.conf
 
 # Master
+
+COPY conf/serf-master.json /root/
+COPY conf/update_slaves.sh /usr/local/bin
 
 COPY boot_master.sh /root/
 COPY boot_slave.sh /root/

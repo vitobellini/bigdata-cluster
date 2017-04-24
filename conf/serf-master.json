@@ -1,0 +1,7 @@
+{
+  "event_handlers": [
+    "member-join=update_slaves.sh",
+    "member-failed=update_slaves.sh",
+    "member-leave=update_slaves.sh"
+  ]
+}
