@@ -10,9 +10,8 @@ ENV JAVA_HOME		/usr/lib/jvm/java-8-oracle
 ENV PATH		$PATH:$JAVA_HOME/bin
 
 RUN apt-get update && \
-    apt-get install -y apt-utils software-properties-common dnsutils net-tools iputils-ping less telnet
+    apt-get install -y apt-utils software-properties-common dnsutils net-tools iputils-ping less telnet tzdata openssh-server serf sshpass supervisor vim
 
-RUN apt-get install -y openssh-server serf sshpass supervisor vim
 RUN mkdir -p /var/run/sshd /var/log/supervisor
 
 RUN \
@@ -91,6 +90,7 @@ COPY conf/supervisord-slave.conf /etc/supervisor/supervisord-slave.conf
 
 COPY conf/serf-master.json /root/
 COPY conf/update_slaves.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/update_slaves.sh
 
 COPY boot_master.sh /root/
 COPY boot_slave.sh /root/

@@ -1,7 +1,7 @@
 {
   "event_handlers": [
-    "member-join=update_slaves.sh",
-    "member-failed=update_slaves.sh",
-    "member-leave=update_slaves.sh"
+    "member-join=/usr/local/bin/update_slaves.sh",
+    "member-failed=/usr/local/bin/update_slaves.sh",
+    "member-leave=/usr/local/bin/update_slaves.sh"
   ]
 }
