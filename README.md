@@ -8,12 +8,10 @@ Hadoop Cluster with Docker
 Before to start, you have to had the following softwares to be installed on all your machines:
 
 - [docker](https://www.docker.com/)
-- [docker-compose](https://docs.docker.com/compose/install/)
 
 #### Installing Docker Engine
 
 https://docs.docker.com/engine/installation/
-
 
 ## Setup your network
 
@@ -32,6 +30,25 @@ Now that you have all the nodes connected to the swarm, create a network overlay
 
 ```bash
 $ sudo docker network create --attachable --driver overlay --subnet 10.0.1.0/24 hadoop_cluster
+```
+
+## Setup DNS server
+
+This container will run Serf and dnsmasqd.
+
+Serf is tool for cluster membership, failure detection, and orchestration.
+dnsmasqd is a lightweight, easy to configure, DNS forwarder.
+
+This container will serve to the cluster the functionality of resolve internal dns hostnames and detect when a new slave joins the cluster.
+
+```bash
+$ sudo docker build -t dns:latest -f Dockerfile-DNS .
+```
+
+Run the container
+
+```bash
+$ sudo docker run -d -ti --name dns --add-host master:10.0.1.2 --hostname cluster-dns --ip 10.0.1.254 --network hadoop_cluster -e TZ=Europe/Rome <image id> bash -c "/root/boot_dns.sh"
 ```
 
 ## Run example
