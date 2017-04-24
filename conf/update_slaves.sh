@@ -6,3 +6,6 @@ serf members -status=alive -tag role=slave | while read line ;do
   NEXT_IP=${NEXT_ADDR%%:*}
   echo $NEXT_IP
 done > $HADOOP_HOME/etc/hadoop/slaves
+
+start-dfs.sh
+start-dfs.sh
