@@ -13,7 +13,9 @@ Before to start, you have to had the following softwares to be installed on all 
 
 https://docs.docker.com/engine/installation/
 
-## Setup your network
+## Setup
+
+### Setup your network
 
 Run the following command on your master pc.
 
@@ -76,5 +78,5 @@ $ sudo docker build -t hadoop:latest .
 Run the container
 
 ```bash
-$ sudo docker run -d -ti --name slave --add-host master:10.0.1.2 --add-host cluster-dns:10.0.1.254 --dns 10.0.1.254 --network hadoop_cluster -e TZ=Europe/Rome b95afadea09e bash -c "/root/boot_slave.sh"
+$ sudo docker run -d -ti --name slave --add-host master:10.0.1.2 --add-host cluster-dns:10.0.1.254 --dns 10.0.1.254 --network hadoop_cluster -e TZ=Europe/Rome <image id> bash -c "/root/boot_slave.sh"
 ```
