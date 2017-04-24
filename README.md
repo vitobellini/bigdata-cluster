@@ -14,12 +14,24 @@ Before to start, you have to had the following softwares to be installed on all 
 
 https://docs.docker.com/engine/installation/
 
-#### Installing docker-compose
 
+## Setup your network
+
+Run the following command on your master pc.
+
+```bash
+$ sudo docker swarm init --advertise-addr <ip of your master>
 ```
-$ sudo apt-get update && sudo apt-get -y upgrade
-$ sudo apt-get install python-pip
-$ sudo pip install docker-compose
+
+Then, make every node of your cluster, to join the docker swarm cluster.
+
+```bash
+$ sudo docker swarm join --token <secret token> <ip of your master>
+```
+Now that you have all the nodes connected to the swarm, create a network overlay on your master.
+
+```bash
+$ sudo docker network create --attachable --driver overlay --subnet 10.0.1.0/24 hadoop_cluster
 ```
 
 ## Run example
