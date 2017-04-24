@@ -37,7 +37,7 @@
 	</property>
 	<property>
 		<name>yarn.resourcemanager.webapp.address</name>
-		<value>master:8088</value>
+		<value>0.0.0.0:8088</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.admin.address</name>
