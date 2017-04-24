@@ -8,4 +8,4 @@ serf members -status=alive -tag role=slave | while read line ;do
 done > $HADOOP_HOME/etc/hadoop/slaves
 
 start-dfs.sh
-start-dfs.sh
+start-yarn.sh
