@@ -37,6 +37,7 @@ $ sudo docker network create --attachable --driver overlay --subnet 10.0.1.0/24 
 This container will run Serf and dnsmasqd.
 
 Serf is tool for cluster membership, failure detection, and orchestration.
+
 dnsmasqd is a lightweight, easy to configure, DNS forwarder.
 
 This container will serve to the cluster the functionality of resolve internal dns hostnames and detect when a new slave joins the cluster.
