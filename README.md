@@ -1,5 +1,5 @@
 # BigData Cluster
-Off-The-Shelf solution to setup a cluster with docker.
+Off-The-Shelf solution to run a cluster for Big Data with docker.
 
 Software installed:
 
