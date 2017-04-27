@@ -48,12 +48,13 @@ COPY keys/id_rsa.pub /root/.ssh/authorized_keys
 COPY keys/id_rsa /root/.ssh
 COPY keys/id_rsa.pub /root/.ssh
 
-# Hadoop
-
 ENV APACHE_MIRROR	www-eu.apache.org
+
+# Hadoop
 
 ENV HADOOP_VERSION	2.8.0
 ENV HADOOP_HOME		/usr/local/hadoop
+ENV HADOOP_CONF_DIR	$HADOOP_HOME/etc/hadoop
 ENV HADOOP_OPTS		-Djava.library.path=/usr/local/hadoop/lib/native
 ENV PATH		$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
@@ -80,6 +81,20 @@ RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
     hdfs namenode -format
 
 VOLUME /data
+
+# Spark
+
+ENV SPARK_VERSION	2.1.0
+ENV SPARK_HOME		/usr/local/spark
+ENV YARN_CONF_DIR	$HADOOP_CONF_DIR
+ENV PATH		$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+
+RUN apt-get install -y scala-library scala
+
+RUN wget http://$APACHE_MIRROR/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
+    tar -xfvz spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
+    rm spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
+    mv spark-$SPARK_VERSION-bin-hadoop2.7 $SPARK_HOME
 
 # Supervisor
 
