@@ -3,8 +3,8 @@ Off-The-Shelf solution to setup a cluster with docker.
 
 Software installed:
 
-- [Hadoop](hadoop.apache.org/)
-- [Spark](spark.apache.org/)
+- [Hadoop](http://hadoop.apache.org/)
+- [Spark](http://spark.apache.org/)
 
 ### Prerequisites
 
