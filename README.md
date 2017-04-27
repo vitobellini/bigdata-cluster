@@ -1,7 +1,10 @@
-# docker-hadoop
-Hadoop Cluster with Docker
+# BigData Cluster
+Off-The-Shelf solution to setup a cluster with docker.
 
-![hadoop logo](https://hadoop.apache.org/images/hadoop-logo.jpg)
+Software installed:
+
+- [Hadoop](hadoop.apache.org/)
+- [Spark](spark.apache.org/)
 
 ### Prerequisites
 
