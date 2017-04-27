@@ -56,6 +56,7 @@ ENV HADOOP_VERSION	2.8.0
 ENV HADOOP_HOME		/usr/local/hadoop
 ENV HADOOP_CONF_DIR	$HADOOP_HOME/etc/hadoop
 ENV HADOOP_OPTS		-Djava.library.path=/usr/local/hadoop/lib/native
+ENV LD_LIBRARY_PATH	$HADOOP_HOME/lib/native/:$LD_LIBRARY_PATH
 ENV PATH		$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
 RUN apt-get update && \
