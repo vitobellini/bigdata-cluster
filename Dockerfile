@@ -64,7 +64,7 @@ RUN apt-get update && \
     wget http://$APACHE_MIRROR/dist/hadoop/core/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz && \
     tar -zxf /hadoop-$HADOOP_VERSION.tar.gz && \
     rm /hadoop-$HADOOP_VERSION.tar.gz && \
-    mv hadoop-$HADOOP_VERSION /usr/local/hadoop && \
+    mv /hadoop-$HADOOP_VERSION /usr/local/hadoop && \
     mkdir -p /usr/local/hadoop/logs
 
 # Overwrite default HADOOP configuration files with our config files
@@ -93,9 +93,9 @@ ENV PATH		$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
 RUN apt-get install -y scala-library scala
 
 RUN wget http://$APACHE_MIRROR/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
-    tar -xfvz spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
-    rm spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
-    mv spark-$SPARK_VERSION-bin-hadoop2.7 $SPARK_HOME
+    tar -xvzf /spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
+    rm /spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
+    mv /spark-$SPARK_VERSION-bin-hadoop2.7 $SPARK_HOME
 
 # Supervisor
 
